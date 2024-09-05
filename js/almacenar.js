@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const agregar = document.getElementById('agregar');
     const nuevoItem = document.getElementById('item');
     const itemList = document.getElementById('contenedor');
+    const limpiar = document.getElementById('limpiar')
     
     // Cargar items desde localStorage
     function loadItems() {
@@ -45,5 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Cargar los items al inicio
     loadItems();
+
+    // Manejar el evento de clic en el botón de eliminar todos
+    limpiar.addEventListener('click', limpiarItems);
+
+    // Eliminar todos los estudiantes
+    function limpiarItems() {
+    localStorage.removeItem('items');
+    loadItems(); // Recargar la lista para que esté vacía
+    }
+
     });
     
